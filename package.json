@@ -1,0 +1,33 @@
+{
+  "name": "baasinga",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.10",
+    "next-auth": "4.22.5",
+    "nuxt": "^3.11.2",
+    "postgres": "^3.4.4",
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@sidebase/nuxt-auth": "^0.7.2",
+    "@egoist/tailwindcss-icons": "^1.8.0",
+    "@iconify/json": "^2.2.211",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "drizzle-kit": "^0.21.4",
+    "postcss-custom-properties": "^13.3.10",
+    "prettier": "^3.2.5"
+  }
+}
