@@ -16,7 +16,7 @@ export default <Partial<Config>>{
     './app.vue',
     './node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}',
   ],
-  darkMode: 'class',
+  darkMode: 'selector',
   plugins: [
     iconsPlugin({
       // Select the icon collections you want to use
