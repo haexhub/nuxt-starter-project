@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   auth: {
     //baseURL: "/api/auth",
     provider: {
-      type: "authjs",
+      type: 'authjs',
       /* endpoints: {
         signIn: { path: "/login", method: "post" },
         signOut: { path: "/logout", method: "post" },
@@ -19,19 +19,44 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ["@nuxtjs/tailwindcss", "@sidebase/nuxt-auth"],
+  i18n: {
+    strategy: 'prefix_and_default',
+    defaultLocale: 'de',
+    //lazy: true,
+    //langDir: 'i18n',
+    locales: ['de', 'en'],
+  },
+
+  modules: [
+    '@nuxt/image',
+    '@nuxtjs/i18n',
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    '@sidebase/nuxt-auth',
+    '@vueuse/nuxt',
+  ],
+
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
 
   runtimeConfig: {
     auth: {
-      secret: process.env.AUTH_SECRET ?? "damn-secret-value!1elf",
+      secret: process.env.AUTH_SECRET ?? 'damn-secret-value!1elf',
+    },
+
+    app: {
+      ui: {
+        minWidth: 'min-w-[420px]',
+      },
     },
 
     database: {
-      username: process.env.DB_USER ?? "postgres",
-      password: process.env.DB_PASSWORD ?? "password",
-      databaseName: process.env.DB_NAME ?? "postgres",
-      domain: process.env.DB_HOST ?? "127.0.0.1",
-      port: Number.parseInt(process.env.DB_PORT ?? "5432"),
+      username: process.env.DB_USER ?? 'postgres',
+      password: process.env.DB_PASSWORD ?? 'password',
+      databaseName: process.env.DB_NAME ?? 'postgres',
+      domain: process.env.DB_HOST ?? '127.0.0.1',
+      port: Number.parseInt(process.env.DB_PORT ?? '5432'),
     },
   },
 });

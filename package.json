@@ -12,6 +12,11 @@
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
+    "@nuxt/image": "^1.7.0",
+    "@nuxtjs/i18n": "^8.3.1",
+    "@pinia/nuxt": "^0.5.1",
+    "@vueuse/core": "^10.10.0",
+    "@vueuse/nuxt": "^10.10.0",
     "drizzle-orm": "^0.30.10",
     "next-auth": "4.22.5",
     "nuxt": "^3.11.2",
@@ -22,10 +27,10 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@sidebase/nuxt-auth": "^0.7.2",
     "@egoist/tailwindcss-icons": "^1.8.0",
     "@iconify/json": "^2.2.211",
     "@nuxtjs/tailwindcss": "^6.12.0",
+    "@sidebase/nuxt-auth": "^0.7.2",
     "drizzle-kit": "^0.21.4",
     "postcss-custom-properties": "^13.3.10",
     "prettier": "^3.2.5"

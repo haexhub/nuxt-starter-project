@@ -1,8 +1,12 @@
 <template>
-  <div class="h-screen">
+  <div :class="{ dark: isDark }">
     <NuxtPage />
   </div>
 </template>
+
+<script setup lang="ts">
+const { isDark } = storeToRefs(useUi());
+</script>
 
 <style>
 .page-enter-active,

@@ -1,18 +1,22 @@
-import type { Config } from "tailwindcss";
-import { iconsPlugin, getIconCollections, dynamicIconsPlugin } from "@egoist/tailwindcss-icons";
-import colors from "tailwindcss/colors";
+import type { Config } from 'tailwindcss';
+import {
+  iconsPlugin,
+  getIconCollections,
+  dynamicIconsPlugin,
+} from '@egoist/tailwindcss-icons';
+import colors from 'tailwindcss/colors';
 
 export default <Partial<Config>>{
   content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./nuxt.config.{js,ts}",
-    "./app.vue",
-    "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}",
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+    './app.vue',
+    './node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}',
   ],
-  darkMode: "class",
+  darkMode: 'class',
   plugins: [
     iconsPlugin({
       // Select the icon collections you want to use
@@ -31,15 +35,20 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
-        primary: colors.cyan[700],
-        "primary-hover": colors.cyan[800],
-        "primary-active": colors.cyan[600],
+        'primary': colors.teal,
+        'primary-hover': colors.teal[700],
+        'primary-active': colors.teal[600],
 
-        dark: {
-          primary: colors.cyan[500],
-          "primary-hover": colors.cyan[700],
-          "primary-active": colors.cyan[600],
+        'dark': {
+          'primary': colors.teal[500],
+          'primary-hover': colors.teal[700],
+          'primary-active': colors.teal[600],
         },
+      },
+
+      fontFamily: {
+        sans: ['Graphik', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
       },
     },
   },
