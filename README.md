@@ -11,6 +11,8 @@ This is a minimal (my favorite) starter stack, which wires a couple of packages 
 - [nuxt-snackbar](https://nuxt.com/modules/snackbar)
 - [drizzle](https://orm.drizzle.team/)
 
+It consists of a simple layout, where you can switch between a dark and light theme, select a language and a basic login page. Just enough to get you startet quickly.
+
 ## Setup
 
 ```
