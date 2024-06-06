@@ -1,9 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   auth: {
-    //baseURL: "/api/auth",
+    baseURL: 'http://localhost:3001',
+
     provider: {
       type: 'authjs',
+
       /* endpoints: {
         signIn: { path: "/login", method: "post" },
         signOut: { path: "/logout", method: "post" },
@@ -18,6 +20,10 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
+
+  devServer: {
+    port: 3001,
+  },
 
   i18n: {
     strategy: 'prefix_and_default',
@@ -34,6 +40,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@sidebase/nuxt-auth',
     '@vueuse/nuxt',
+    'nuxt-snackbar',
   ],
 
   pinia: {
@@ -58,5 +65,11 @@ export default defineNuxtConfig({
       domain: process.env.DB_HOST ?? '127.0.0.1',
       port: Number.parseInt(process.env.DB_PORT ?? '5432'),
     },
+  },
+
+  snackbar: {
+    top: true,
+    right: true,
+    duration: 5000,
   },
 });

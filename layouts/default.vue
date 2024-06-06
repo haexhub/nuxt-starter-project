@@ -4,6 +4,18 @@
     :class="ui.minWidth"
   >
     <UiNavbar>
+      <UiNavbarItem v-if="status === 'authenticated'">
+        <UiButton @click="logoutAsync">
+          {{ t('logout') }}
+        </UiButton>
+      </UiNavbarItem>
+
+      <UiNavbarLink
+        v-else
+        to="login"
+        icon="i-[material-symbols--login]"
+        :text="t('login')"
+      />
       <UiNavbarItem>
         <UiButton
           @click="isDark = !isDark"
@@ -22,12 +34,6 @@
       <UiNavbarItem>
         <UiLanguageSelection />
       </UiNavbarItem>
-
-      <UiNavbarLink
-        to="login"
-        icon="i-[material-symbols--login]"
-        :text="t('login')"
-      />
     </UiNavbar>
 
     <div class="p-4 h-full overflow-scroll">
@@ -44,16 +50,36 @@ const {
 } = useRuntimeConfig();
 
 const { isDark } = storeToRefs(useUi());
+
+const { status, signOut, data } = useAuth();
+
+console.log(status.value);
+const localeRoute = useLocaleRoute();
+const snackbar = useSnackbar();
+
+const logoutAsync = async () => {
+  /* navigateTo(localeRoute('/'));
+  snackbar.add({
+    type: 'success',
+    text: t('logoutSuccess'),
+  }); */
+  await signOut({ redirect: false });
+  navigateTo(localeRoute('/'));
+};
 </script>
 
 <i18n lang="json">
 {
   "de": {
-    "login": "Einloggen"
+    "login": "Einloggen",
+    "logout": "Abmelden",
+    "logoutSuccess": "Erfolgreich abgemeldet"
   },
 
   "en": {
-    "login": "Login"
+    "login": "Login",
+    "logout": "Logout",
+    "logoutSuccess": "Logout successfull"
   }
 }
 </i18n>

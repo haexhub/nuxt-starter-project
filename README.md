@@ -1,10 +1,25 @@
 # Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a minimal (my favorite) starter stack, which wires a couple of packages with a basic configuration together for a quick start
+
+- [@nuxt/image](https://image.nuxt.com/?utm_source=nuxt_website&utm_medium=modules)
+- [@nuxtjs/i18n](https://nuxt.com/modules/i18n)
+- [@nuxtjs/tailwindcss](https://nuxt.com/modules/tailwindcss)
+- [@pinia/nuxt](https://nuxt.com/modules/pinia)
+- [@sidebase/nuxt-auth](https://nuxt.com/modules/sidebase-auth)
+- [@vueuse/nuxt](https://nuxt.com/modules/vueuse)
+- [nuxt-snackbar](https://nuxt.com/modules/snackbar)
+- [drizzle](https://orm.drizzle.team/)
 
 ## Setup
 
-Make sure to install the dependencies:
+```
+git clone https://github.com/haexhub/nuxt-starter-project
+```
+
+```
+cd nuxt-starter-project
+```
 
 ```bash
 # npm
@@ -22,20 +37,18 @@ bun install
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
-
 ```bash
 # npm
-npm run dev
+npm dev -o
 
 # pnpm
-pnpm run dev
+pnpm dev -o
 
 # yarn
-yarn dev
+yarn dev -o
 
 # bun
-bun run dev
+bun dev -o
 ```
 
 ## Production
@@ -44,16 +57,16 @@ Build the application for production:
 
 ```bash
 # npm
-npm run build
+npm build
 
 # pnpm
-pnpm run build
+pnpm build
 
 # yarn
 yarn build
 
 # bun
-bun run build
+bun build
 ```
 
 Locally preview production build:

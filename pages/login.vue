@@ -52,27 +52,4 @@
 definePageMeta({
   auth: false,
 });
-
-const credentials = reactive({
-  username: '',
-  password: '',
-  showPassword: false,
-});
-
-const { signIn } = useAuth();
-
-const loginAsync = async () => {
-  const { error } = await signIn('credentials', {
-    username: credentials.username,
-    password: credentials.password,
-    redirect: false,
-  });
-  if (error) {
-    // Do your custom error handling here
-    alert('You have made a terrible mistake while entering your credentials');
-  } else {
-    // No error, continue with the sign in, e.g., by following the returned redirect:
-    return navigateTo('/protected', { external: true });
-  }
-};
 </script>

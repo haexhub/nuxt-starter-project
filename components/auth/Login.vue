@@ -6,12 +6,13 @@
         src="/squirel_challenge.jpg"
       />
 
-      <div
+      <form
         class="p-8 flex flex-col my-auto mx-4 xl:mx-auto w-full lg:w-1/2 xl:w-1/3 bg-slate-300 dark:bg-slate-900 rounded-lg space-y-6"
       >
         <h2 class="text-lg font-medium title-font">
           {{ t('login') }}
         </h2>
+
         <UiInput
           type="text"
           name="username"
@@ -23,17 +24,18 @@
             <i class="i-[mdi--person-outline]" />
           </template>
         </UiInput>
-
+        {{ username }}
         <UiInput
           :label="t('password')"
           :placeholder="t('password')"
           :type="password.show ? 'text' : 'password'"
           name="password"
-          v-model="password"
+          v-model="password.value"
         >
           <template #left>
             <i class="i-[mdi--password-outline]" />
           </template>
+
           <template #right>
             <UiButton
               class="flex"
@@ -49,14 +51,15 @@
             </UiButton>
           </template>
         </UiInput>
-
+        {{ password.value }}
         <UiButton
           class="bg-primary-500 border-0 py-2 px-8 focus:outline-none hover:bg-primary-600 rounded text-lg"
+          type="submit"
           @click.prevent="loginAsync()"
         >
           {{ t('login') }}
         </UiButton>
-      </div>
+      </form>
     </div>
   </UiPage>
 </template>
@@ -73,6 +76,9 @@ const { t } = useI18n({});
 
 const { signIn } = useAuth();
 
+const snackbar = useSnackbar();
+const localeRoute = useLocaleRoute();
+
 const loginAsync = async () => {
   const { error } = await signIn('credentials', {
     username: username.value,
@@ -81,10 +87,13 @@ const loginAsync = async () => {
   });
   if (error) {
     // Do your custom error handling here
-    alert('You have made a terrible mistake while entering your credentials');
+    snackbar.add({
+      type: 'error',
+      text: t('loginError'),
+    });
   } else {
     // No error, continue with the sign in, e.g., by following the returned redirect:
-    return navigateTo('/protected', { external: true });
+    return navigateTo(localeRoute('/profile'));
   }
 };
 </script>
@@ -94,12 +103,14 @@ const loginAsync = async () => {
   "de": {
     "login": "Anmelden",
     "username": "Nutzername",
-    "password": "Passwort"
+    "password": "Passwort",
+    "loginError": "Kombination von Nutzername und Passwort stimmen nicht überein"
   },
   "en": {
     "login": "Login",
     "username": "Username",
-    "password": "Password"
+    "password": "Password",
+    "loginError": "Kombination of username and password doesn't match"
   }
 }
 </i18n>

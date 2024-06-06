@@ -10,6 +10,7 @@ export default NuxtAuthHandler({
   pages: {
     signIn: '/login',
     error: '/error',
+    signOut: '/',
   },
 
   providers: [
@@ -28,6 +29,7 @@ export default NuxtAuthHandler({
           placeholder: 'Password',
         },
       },
+
       authorize(
         credentials: MaybeRef<{
           username: string;
@@ -40,7 +42,15 @@ export default NuxtAuthHandler({
         // that is false/null if the credentials are invalid.
         // NOTE: THE BELOW LOGIC IS NOT SAFE OR PROPER FOR AUTHENTICATION!
         const _credentials = toValue(credentials);
-        console.log('login with', _credentials.username, _credentials.password);
+        console.log(
+          'login with',
+          _credentials,
+          'username',
+          _credentials.username,
+          'password',
+          _credentials.password
+        );
+
         const user = {
           id: '1',
           name: 'J Smith',

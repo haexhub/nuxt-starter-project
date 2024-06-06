@@ -1,9 +1,5 @@
 import type { Config } from 'tailwindcss';
-import {
-  iconsPlugin,
-  getIconCollections,
-  dynamicIconsPlugin,
-} from '@egoist/tailwindcss-icons';
+import { iconsPlugin, dynamicIconsPlugin } from '@egoist/tailwindcss-icons';
 import colors from 'tailwindcss/colors';
 
 export default <Partial<Config>>{

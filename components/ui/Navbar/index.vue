@@ -28,7 +28,7 @@
         class="lg:flex lg:flex-grow items-center"
       >
         <ul
-          class="flex flex-col lg:flex-row list-none ml-auto items-start lg:items-center"
+          class="flex flex-col lg:flex-row list-none ml-auto items-start lg:items-center space-x-2"
         >
           <slot />
         </ul>
