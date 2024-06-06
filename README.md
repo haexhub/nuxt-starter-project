@@ -12,7 +12,7 @@ This is a minimal (my favorite) starter stack, which wires a couple of packages 
 - [drizzle](https://orm.drizzle.team/)
 
 It consists of a simple layout, where you can switch between a dark and light theme, select a language and a basic login page. Just enough to get you startet quickly.
-It only contains tailwind as css framework but no component framework. This has to be choosen by you, if you feel the desire to have one.
+It only contains tailwind as css framework but no component framework. This has to be choosen by yourself, if you feel the desire to have one.
 
 ## Setup
 
