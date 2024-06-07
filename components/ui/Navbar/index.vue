@@ -24,7 +24,7 @@
       </div>
 
       <div
-        v-bind:class="{ hidden: !showMenu, flex: showMenu }"
+        :class="[showMenu ? 'flex' : 'hidden']"
         class="lg:flex lg:flex-grow items-center"
       >
         <ul

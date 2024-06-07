@@ -5,7 +5,10 @@
   >
     <UiNavbar>
       <UiNavbarItem v-if="status === 'authenticated'">
-        <UiButton @click="logoutAsync">
+        <UiButton
+          @click="logoutAsync"
+          class="px-3"
+        >
           {{ t('logout') }}
         </UiButton>
       </UiNavbarItem>
@@ -16,10 +19,11 @@
         icon="i-[material-symbols--login]"
         :text="t('login')"
       />
+
       <UiNavbarItem>
         <UiButton
           @click="isDark = !isDark"
-          class="px-3"
+          class="p-3"
         >
           <i
             :class="
@@ -50,20 +54,17 @@ const {
 } = useRuntimeConfig();
 
 const { isDark } = storeToRefs(useUi());
+const { status, signOut } = useAuth();
 
-const { status, signOut, data } = useAuth();
-
-console.log(status.value);
 const localeRoute = useLocaleRoute();
 const snackbar = useSnackbar();
 
 const logoutAsync = async () => {
-  /* navigateTo(localeRoute('/'));
+  await signOut({ redirect: false });
   snackbar.add({
     type: 'success',
     text: t('logoutSuccess'),
-  }); */
-  await signOut({ redirect: false });
+  });
   navigateTo(localeRoute('/'));
 };
 </script>

@@ -7,6 +7,7 @@
       <i
         class="text-lg leading-lg text-white"
         :class="icon"
+        v-if="icon"
       />
       <span class="ml-2">{{ text }}</span>
     </NuxtLinkLocale>
