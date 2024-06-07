@@ -38,6 +38,18 @@ yarn install
 bun install
 ```
 
+## Setup environment file
+
+```
+cp ./example.env ./.env
+```
+
+## Prepare Drizzle Migration
+
+```bash
+pnpm drizzle-kit generate
+```
+
 ## Development Server
 
 ```bash
