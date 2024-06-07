@@ -46,9 +46,19 @@ cp ./example.env ./.env
 
 ## Prepare Drizzle Migration
 
+Place your entities server/database/schemas/yourEntity.ts and include it in the server/database/schemas/index.ts file. Than generate the migration files with:
+
 ```bash
-pnpm drizzle-kit generate
+pnpm db:generate
 ```
+
+If you want to migrate the new schemas you can run
+
+```bash
+pnpm db:migrate
+```
+
+But in development mode you don't have to do this, because the migration plugin will do this for you automatically
 
 ## Development Server
 
