@@ -9,6 +9,10 @@
         <span>
           {{ data }}
         </span>
+
+        <span>
+          {{ res }}
+        </span>
       </div>
       <div class="h-screen bg-blue-400"></div>
     </div>
@@ -16,5 +20,11 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  auth: false,
+});
 const { status, data } = useAuth();
+
+//const headers = useRequestHeaders(['cookie']) as HeadersInit;
+const res = await useFetch('/api/protected/test');
 </script>

@@ -20,14 +20,14 @@ export default NuxtAuthHandler({
       // You can specify whatever fields you are expecting to be submitted.
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
-      credentials: {
+      /* credentials: {
         username: { label: 'Username', type: 'text', placeholder: 'Username' },
         password: {
           label: 'Password',
           type: 'password',
           placeholder: 'Password',
         },
-      },
+      }, */
 
       authorize(
         credentials: MaybeRef<{
@@ -51,10 +51,13 @@ export default NuxtAuthHandler({
         );
 
         const user = {
-          id: '1',
+          id: '142',
           name: 'J Smith',
           username: 'jsmith',
           password: 'hunter2',
+          email: 'boo@foo.bar',
+          role: 'foo',
+          image: 'bunt',
         };
         if (
           _credentials?.username === user.username &&

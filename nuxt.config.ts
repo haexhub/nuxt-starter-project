@@ -5,7 +5,6 @@ export default defineNuxtConfig({
 
     provider: {
       type: 'authjs',
-
       /* endpoints: {
         signIn: { path: "/login", method: "post" },
         signOut: { path: "/logout", method: "post" },
