@@ -1,5 +1,4 @@
 {
-  "organization": "Organization",
-  "users": "Users",
-  "challenges": "Challenges"
+  "profile": "Profile",
+  "login": "Login"
 }

@@ -1,4 +1,10 @@
-import sidebarDE from "./sidebar/de.json";
-import sidebarEN from "./sidebar/en.json";
+import sidebarDE from './sidebar/de.json';
+import sidebarEN from './sidebar/en.json';
 
-export { sidebarDE, sidebarEN };
+export const de = {
+  sidebar: sidebarDE,
+};
+
+export const en = {
+  sidebar: sidebarEN,
+};

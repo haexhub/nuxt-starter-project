@@ -1,7 +1,7 @@
 <template>
   <div
-    class="h-screen w-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200"
-    :class="ui.minWidth"
+    class="h-screen w-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 flex flex-col overflow-hidden min-w-[360px]"
+    :class="minWidth"
   >
     <UiNavbar>
       <UiNavbarItem v-if="status === 'authenticated'">
@@ -13,17 +13,10 @@
         </UiButton>
       </UiNavbarItem>
 
-      <UiNavbarLink
-        v-else
-        to="login"
-        icon="i-[material-symbols--login]"
-        :text="t('login')"
-      />
-
       <UiNavbarItem>
         <UiButton
           @click="isDark = !isDark"
-          class="p-3"
+          class="px-2"
         >
           <i
             :class="
@@ -36,12 +29,49 @@
       </UiNavbarItem>
 
       <UiNavbarItem>
-        <UiLanguageSelection />
+        <UiLanguageSelection class="border rounded" />
       </UiNavbarItem>
     </UiNavbar>
 
-    <div class="p-4 h-full overflow-scroll">
-      <slot />
+    <div class="flex h-full">
+      <UiSidebar :collapsed="settings.collapsed">
+        <NuxtLinkLocale
+          v-if="status === 'authenticated'"
+          v-for="item in menu.loggedIn"
+          :to="item.to"
+          activeClass="text-primary-active dark:text-dark-primary-active"
+          class="flex items-center justify-start hover:bg-primary dark:hover:bg-dark-primary px-4 py-2 rounded space-x-2"
+        >
+          <i :class="item.icon" />
+
+          <!-- <Transition name="fade"> -->
+          <span>
+            {{ item.label }}
+          </span>
+          <!-- </Transition> -->
+        </NuxtLinkLocale>
+
+        <NuxtLinkLocale
+          v-else
+          v-for="item in menu.loggedOut"
+          :to="item.to"
+          activeClass="text-primary-active dark:text-dark-primary-active"
+          class="flex items-center justify-start hover:bg-primary dark:hover:bg-dark-primary px-3 py-2 rounded space-x-3"
+        >
+          <i
+            :class="item.icon"
+            class="shrink-0"
+          />
+          <!-- <Transition name="fade">
+            <span v-if="!settings.collapsed"> -->
+          <span>{{ item.label }}</span>
+          <!--  </span>
+          </Transition> -->
+        </NuxtLinkLocale>
+      </UiSidebar>
+      <div class="md:p-4 overflow-scroll grow">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -49,11 +79,7 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
-const {
-  app: { ui },
-} = useRuntimeConfig();
-
-const { isDark } = storeToRefs(useUi());
+const { isDark, minWidth } = storeToRefs(useUi());
 const { status, signOut } = useAuth();
 
 const localeRoute = useLocaleRoute();
@@ -67,6 +93,8 @@ const logoutAsync = async () => {
   });
   navigateTo(localeRoute('/'));
 };
+
+const { menu, settings } = storeToRefs(useSidebar());
 </script>
 
 <i18n lang="json">

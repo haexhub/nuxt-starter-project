@@ -1,21 +1,23 @@
 <template>
   <nav
-    class="fixed left-4 right-4 flex flex-wrap items-center justify-between px-2 py-3 bg-primary-400 top-2 rounded min-w-[420px]"
+    class="flex items-center justify-between px-3 py-2 bg-primary dark:bg-dark-primary rounded-b"
   >
     <div
-      class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+      class="px-4 flex flex-col lg:flex-row lg:items-center lg:justify-between grow"
     >
-      <div
-        class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start"
-      >
+      <div class="flex grow lg:grow-0">
+        <UiButton @click="toogleSidebar">
+          <i class="i-[ph--sidebar] text-slate-50" />
+        </UiButton>
         <NuxtLinkLocale
-          class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+          class="text-sm font-bold leading-relaxed inline-block py-2 whitespace-nowrap uppercase text-white mx-4"
           to="/"
         >
           Starter Template
         </NuxtLinkLocale>
+
         <button
-          class="text-white text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          class="text-white text-xl leading-none px-3 py-1 ml-auto border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
           type="button"
           v-on:click="toggleNavbar()"
         >
@@ -25,10 +27,10 @@
 
       <div
         :class="[showMenu ? 'flex' : 'hidden']"
-        class="lg:flex lg:flex-grow items-center"
+        class="lg:flex items-center lg:justify-end"
       >
         <ul
-          class="flex flex-col lg:flex-row list-none ml-auto items-start lg:items-center space-x-2"
+          class="flex flex-col lg:flex-row list-none items-start lg:items-center lg:space-x-2 space-y-2"
         >
           <slot />
         </ul>
@@ -43,4 +45,6 @@ const showMenu = ref(false);
 const toggleNavbar = () => {
   showMenu.value = !showMenu.value;
 };
+
+const { toogleSidebar } = useSidebar();
 </script>

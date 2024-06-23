@@ -9,8 +9,8 @@ export default <Partial<Config>>{
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
+    './stores/**/*.{ts,js}',
     './app.vue',
-    './node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}',
   ],
   darkMode: 'selector',
   plugins: [
@@ -31,14 +31,16 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
-        'primary': colors.teal,
-        'primary-hover': colors.teal[700],
-        'primary-active': colors.teal[600],
+        'primary-active': colors.teal[700],
+        'primary-focus': colors.teal[400],
+        'primary-hover': colors.teal[600],
+        'primary': colors.teal[500],
 
         'dark': {
+          'primary-active': colors.teal[700],
+          'primary-focus': colors.teal[700],
+          'primary-hover': colors.teal[600],
           'primary': colors.teal[500],
-          'primary-hover': colors.teal[700],
-          'primary-active': colors.teal[600],
         },
       },
 

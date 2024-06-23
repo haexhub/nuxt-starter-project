@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-    <div class="pt-16">
+    <UiPage>
       <div class="h-screen bg-purple-900 flex flex-col">
         <span>
           {{ status }}
@@ -15,7 +15,7 @@
         </span>
       </div>
       <div class="h-screen bg-blue-400"></div>
-    </div>
+    </UiPage>
   </NuxtLayout>
 </template>
 

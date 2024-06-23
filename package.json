@@ -21,20 +21,21 @@
     "@vueuse/nuxt": "^10.11.0",
     "drizzle-orm": "^0.30.10",
     "next-auth": "4.21.1",
-    "nuxt": "^3.12.1",
+    "nuxt": "^3.12.2",
     "nuxt-snackbar": "^1.0.4",
     "postgres": "^3.4.4",
     "tailwindcss-animate": "^1.0.7",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.3",
+    "vue": "^3.4.30",
+    "vue-router": "^4.4.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.8.1",
-    "@iconify/json": "^2.2.219",
+    "@iconify/json": "^2.2.221",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@sidebase/nuxt-auth": "^0.7.2",
     "drizzle-kit": "^0.21.4",
+    "nuxt-file-storage": "^0.2.6",
     "postcss-custom-properties": "^13.3.10",
     "prettier": "^3.3.2"
   }

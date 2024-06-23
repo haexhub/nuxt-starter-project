@@ -1,70 +1,66 @@
 <template>
   <NuxtLayout>
-    <div class="h-full flex pt-16 min-w-[420px]">
-      <UiPage>
-        <div class="flex items-stretch h-full">
-          <NuxtImg
-            class="object-cover hidden lg:block w-1/2"
-            src="/squirel_challenge.jpg"
-          />
+    <UiPage class="flex bg-red-400">
+      <NuxtImg
+        class="object-cover hidden lg:block w-1/2"
+        src="/squirel_challenge.jpg"
+      />
 
-          <form
-            class="p-8 flex flex-col my-auto mx-4 xl:mx-auto w-full lg:w-1/2 xl:w-1/3 bg-slate-300 dark:bg-slate-900 rounded-lg space-y-6"
-          >
-            <h2 class="text-lg font-medium title-font">
-              {{ t('login') }}
-            </h2>
+      <form
+        class="p-4 flex flex-col my-auto md:mx-4 xl:mx-auto w-full lg:w-1/2 xl:w-1/3 bg-slate-300 dark:bg-slate-900 rounded-lg space-y-6"
+      >
+        <h2 class="text-lg font-medium title-font">
+          {{ t('login') }}
+        </h2>
 
-            <UiInput
-              type="text"
-              name="username"
-              :placeholder="t('username')"
-              :label="t('username')"
-              v-model="username"
-            >
-              <template #left>
-                <i class="i-[mdi--person-outline]" />
-              </template>
-            </UiInput>
+        <UiInput
+          type="text"
+          name="username"
+          :placeholder="t('username')"
+          :label="t('username')"
+          v-model="username"
+        >
+          <template #left>
+            <i class="i-[mdi--person-outline]" />
+          </template>
+        </UiInput>
 
-            <UiInput
-              :label="t('password')"
-              :placeholder="t('password')"
-              :type="password.show ? 'text' : 'password'"
-              name="password"
-              v-model="password.value"
-            >
-              <template #left>
-                <i class="i-[mdi--password-outline]" />
-              </template>
+        <UiInput
+          :label="t('password')"
+          :placeholder="t('password')"
+          :type="password.show ? 'text' : 'password'"
+          name="password"
+          v-model="password.value"
+        >
+          <template #left>
+            <i class="i-[mdi--password-outline]" />
+          </template>
 
-              <template #right>
-                <UiButton
-                  class="flex"
-                  @click.prevent="password.show = !password.show"
-                >
-                  <i
-                    :class="[
-                      password.show
-                        ? 'i-[mdi--eye-off-outline]'
-                        : 'i-[mdi--eye-outline]',
-                    ]"
-                  />
-                </UiButton>
-              </template>
-            </UiInput>
-
+          <template #right>
             <UiButton
-              class="bg-primary-500 border-0 py-2 px-8 focus:outline-none hover:bg-primary-600 rounded text-lg"
-              type="submit"
-              @click.prevent="loginAsync()"
+              class="flex"
+              @click.prevent="password.show = !password.show"
             >
-              {{ t('login') }}
+              <i
+                :class="[
+                  password.show
+                    ? 'i-[mdi--eye-off-outline]'
+                    : 'i-[mdi--eye-outline]',
+                ]"
+              />
             </UiButton>
-          </form>
-        </div>
-      </UiPage>
-    </div>
+          </template>
+        </UiInput>
+
+        <UiButton
+          class="bg-primary dark:bg-dark-primary border-0 py-2 px-8 focus:outline-none hover:bg-primary-hover dark:hover:bg-dark-primary-hover rounded text-lg"
+          type="submit"
+          @click.prevent="loginAsync()"
+        >
+          {{ t('login') }}
+        </UiButton>
+      </form>
+    </UiPage>
   </NuxtLayout>
 </template>
 
@@ -92,6 +88,7 @@ const loginAsync = async () => {
     password: password.value,
     redirect: false,
   });
+
   if (error) {
     // Do your custom error handling here
     snackbar.add({

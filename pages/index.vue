@@ -1,14 +1,12 @@
 <template>
   <NuxtLayout>
-    <div class="pt-16 h-full">
+    <UiPage>
       <div
         class="bg-cyan-400 h-full rounded-lg flex flex-col items-center justify-center"
       >
-        Starter Template
-
-        <div>can {{ can('delete', 'User') }}</div>
+        Starter Template {{ t('store.sidebar.profile') }}
       </div>
-    </div>
+    </UiPage>
   </NuxtLayout>
 </template>
 
@@ -17,5 +15,5 @@ definePageMeta({
   auth: false,
 });
 
-const { can } = useAppAbility();
+const { t } = useI18n();
 </script>

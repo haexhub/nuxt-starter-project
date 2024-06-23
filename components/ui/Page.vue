@@ -1,8 +1,5 @@
 <template>
-  <section
-    class="bg-slate-200 dark:bg-slate-800 w-full rounded-lg overflow-hidden"
-    :class="ui.minWidth"
-  >
+  <section class="bg-slate-200 dark:bg-slate-900 w-full h-full rounded-lg">
     <slot />
   </section>
 </template>

@@ -1,5 +1,4 @@
 {
-  "organization": "Organisation",
-  "users": "Nutzer",
-  "challenges": "Herausforderungen"
+  "profile": "Profile",
+  "login": "Anmelden"
 }

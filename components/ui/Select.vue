@@ -2,7 +2,7 @@
   <div ref="activator">
     <button
       :id
-      class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+      class="p-2 bg-primary dark:bg-dark-primary hover:bg-primary-hover dark:hover:bg-dark-primary-hover focus:ring-4 focus:outline-none focus:ring-primary-focus dark:focus:ring-dark-primary-focus font-medium rounded-lg text-sm text-center inline-flex items-center"
       type="button"
       @click.prevent="toogleMenu"
     >
@@ -10,37 +10,23 @@
         name="value"
         :value
       />
-      <svg
-        class="w-2.5 h-2.5 ms-3"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 10 6"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="m1 1 4 4 4-4"
-        />
-      </svg>
+      <i class="i-[material-symbols--keyboard-arrow-down]" />
     </button>
 
     <!-- Dropdown menu -->
     <div
       id="dropdown"
-      class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 absolute top-14"
+      class="z-10 bg-white divide-y divide-slate-100 rounded-lg shadow dark:bg-slate-700 absolute top-14"
       :class="{ hidden: !show }"
     >
       <ul
-        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        class="py-2 text-sm text-slate-700 dark:text-slate-200"
         :aria-labelledby="id"
       >
         <li
           v-for="option in options"
           :key="option.code"
-          class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          class="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white"
           @click="value = option"
         >
           <slot

@@ -24,12 +24,24 @@ export default defineNuxtConfig({
     port: 3001,
   },
 
+  fileStorage: {
+    mount: process.env.FILESTORAGE_MOUNT,
+  },
+
   i18n: {
     strategy: 'prefix_and_default',
     defaultLocale: 'de',
-    //lazy: true,
-    //langDir: 'i18n',
-    locales: ['de', 'en'],
+    lazy: true,
+    langDir: 'i18n',
+    locales: [
+      { code: 'de', file: 'de.ts' },
+      { code: 'en', file: 'en.ts' },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root', // recommended
+    },
   },
 
   modules: [
@@ -39,6 +51,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@sidebase/nuxt-auth',
     '@vueuse/nuxt',
+    'nuxt-file-storage',
     'nuxt-snackbar',
   ],
 
@@ -49,12 +62,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     auth: {
       secret: process.env.AUTH_SECRET ?? 'damn-secret-value!1elf',
-    },
-
-    app: {
-      ui: {
-        minWidth: 'min-w-[420px]',
-      },
     },
 
     database: {

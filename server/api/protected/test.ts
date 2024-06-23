@@ -3,9 +3,6 @@ import { getServerSession, getToken } from '#auth';
 
 export default defineEventHandler(async (event) => {
   const session = await getServerSession(event);
-  if (!session) {
-    return { status: 'unauthenticated!' };
-  }
 
   const token = await getToken({ event });
 

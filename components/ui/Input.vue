@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mb-2">
+  <div class="mb-2">
     <label
       v-if="label"
       :for="id"
@@ -23,7 +23,7 @@
         :id
         :name
         :placeholder
-        class="w-full bg-slate-100 bg-opacity-20 focus:bg-opacity-10 focus:ring-2 focus:ring-primary-900 focus:border-primary-500 border-slate-600 transition-colors duration-200 ease-in-out text-base outline-none py-1 px-3 leading-8 border z-10"
+        class="w-full bg-slate-100 bg-opacity-20 focus:bg-opacity-10 focus:ring-2 focus:ring-primary-hover focus:border-primary-active border-slate-600 transition-colors duration-200 ease-in-out text-base outline-none py-1 px-3 leading-8 border z-10"
         v-model="input"
       />
 

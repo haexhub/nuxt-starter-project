@@ -1,25 +1,25 @@
 export const useSidebar = defineStore('sidebarStore', () => {
   const { t } = useI18n();
   const menu = computed(() => ({
-    admin: [
-      /* { label: 'Home', icon: 'HOME', to: '/' },
+    loggedOut: [
       {
-        label: t('store.sidebar.organization'),
-        icon: 'company',
-        to: '/organization',
+        label: t('store.sidebar.login'),
+        icon: 'i-[material-symbols--login]',
+        to: '/login',
       },
-      { label: t('store.sidebar.users'), icon: 'USER', to: '/users' },
+    ],
+
+    loggedIn: [
       {
-        label: t('store.sidebar.challenges'),
-        icon: 'FLAG',
-        to: '/challenges',
-      }, */
+        label: t('store.sidebar.profile'),
+        icon: 'i-[material-symbols--person-outline]',
+        to: '/profile',
+      },
     ],
   }));
 
   const settings = reactive({
     collapsed: false,
-    transition: 'transition-[width] ease-in duration-1000',
   });
 
   const toogleSidebar = () => {

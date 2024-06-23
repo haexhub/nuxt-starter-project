@@ -1,5 +1,7 @@
 <template>
-  <div>error</div>
+  <NuxtLayout>
+    <UiPage> Error </UiPage>
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
