@@ -27,10 +27,10 @@
 
       <div
         :class="[showMenu ? 'flex' : 'hidden']"
-        class="lg:flex items-center lg:justify-end"
+        class="lg:flex lg:justify-end"
       >
         <ul
-          class="flex flex-col lg:flex-row list-none items-start lg:items-center lg:space-x-2 space-y-2"
+          class="flex flex-col lg:flex-row list-none items-start lg:items-center lg:space-x-2 space-y-2 lg:space-y-0 h-full w-full"
         >
           <slot />
         </ul>

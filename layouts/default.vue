@@ -16,7 +16,7 @@
       <UiNavbarItem>
         <UiButton
           @click="isDark = !isDark"
-          class="px-2"
+          class="p-2"
         >
           <i
             :class="
@@ -40,9 +40,12 @@
           v-for="item in menu.loggedIn"
           :to="item.to"
           activeClass="text-primary-active dark:text-dark-primary-active"
-          class="flex items-center justify-start hover:bg-primary dark:hover:bg-dark-primary px-4 py-2 rounded space-x-2"
+          class="flex items-center justify-start hover:bg-primary dark:hover:bg-dark-primary px-3 py-2 rounded space-x-3"
         >
-          <i :class="item.icon" />
+          <i
+            :class="item.icon"
+            class="shrink-0"
+          />
 
           <!-- <Transition name="fade"> -->
           <span>

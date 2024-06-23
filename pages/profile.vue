@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout>
     <UiPage>
-      <div class="h-screen bg-purple-900 flex flex-col">
+      <div class="h-screen bg-purple-900 flex flex-col p-8">
         <span>
           {{ status }}
         </span>
@@ -20,11 +20,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  auth: false,
-});
 const { status, data } = useAuth();
 
-//const headers = useRequestHeaders(['cookie']) as HeadersInit;
 const res = await useFetch('/api/protected/test');
 </script>
